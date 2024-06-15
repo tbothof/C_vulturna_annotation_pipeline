@@ -1,9 +1,6 @@
 import glob
 import subprocess
 
-##This should activate the right environment.##
-subprocess.run(['conda', 'activate', 'assembly'])
-
 ##This creates a directory in which the assemblies will be stored. Change the second argument as needed to change directory name.##
 subprocess.run(["mkdir", "./modifiedassembly"])
 
