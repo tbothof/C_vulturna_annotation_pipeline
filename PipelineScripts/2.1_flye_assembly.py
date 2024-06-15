@@ -2,7 +2,7 @@ import glob
 import subprocess
 
 ##This creates a directory in which the assemblies will be stored. Change the second argument as needed to change directory name.##
-subprocess.run(["mkdir", "./modifiedassembly"])
+subprocess.run(["mkdir", "./assemblyoutput"])
 
 
 ##This uses glob to grab all files in a rawdata directory ending in fastq.gz, AKA gzipped fastq files. Change the part after * to change##
@@ -16,10 +16,8 @@ for file in sequences:
 ## on the names of the original read files. These names are also used for all the other parts of the pipeline, so choose them carefully.##
 ##The original files all started with bc..., so use this for convenience.##
     interfile = file.replace("rawdata/", "")
-    print(interfile)
     dirname = interfile.replace(".fastq.gz","")
-    print(dirname)
-    outputdir = f'./modifiedassembly/{dirname}'
+    outputdir = f'./assemblyoutput/{dirname}'
     subprocess.run(['mkdir', outputdir])
 
 #Now we just run Flye on every single file.##
